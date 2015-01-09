@@ -46,4 +46,10 @@ if (!file.exists(downloadedFilePath)) {
 ## load data from the file
 powerConsumption <- fread(subsetFilePath, na.strings = "?")
 
-hist(powerConsumption$Global_active_power)
+png(filename = "plot1.png",
+    width = 480, height = 480)
+
+hist(powerConsumption$Global_active_power, main = "Global Active Power", col = "red", 
+     xlab = "Globale Active Power (kilowatts)")
+
+dev.off()  ## Close the png file device
