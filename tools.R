@@ -1,7 +1,7 @@
 require(lubridate)
 
 ## This function download and unzip data from UCI site if it is not already done
-downloadData <- function(dataFolder) {
+downloadData <- function(dataFolder, fileURL) {
   downloadedFileName <- "household_power_consumption.zip"
   downloadedFilePath <- paste(dataFolder, downloadedFileName, sep = "/")
   
@@ -72,4 +72,22 @@ subsetData <- function(fromDate, toDate, dataFolder, filePath) {
   close(cout)
   
   return (subsetFilePath)
+}
+
+loadData <- function() {
+  dataFolder <- "./data"
+  fileName <- "household_power_consumption.txt"
+  
+  fileURL <- "https://d396qusza40orc.cloudfront.net/exdata%2Fdata%2Fhousehold_power_consumption.zip"
+  filePath <- paste(dataFolder, fileName, sep = "/")
+  
+  ## download UCI data (see tools.R)
+  downloadData(dataFolder, fileURL)
+  ## subset UCI data for given range (see tools.R)
+  subsetFilePath <- subsetData(as.Date("2007-02-01"), as.Date("2007-02-02"), 
+                               dataFolder, filePath)
+  
+  ## load data from the file
+  powerConsumption <- fread(subsetFilePath, na.strings = "?")
+  return (powerConsumption)
 }
