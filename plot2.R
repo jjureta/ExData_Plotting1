@@ -16,11 +16,6 @@ Sys.setlocale(category = "LC_TIME", "English")
 png(filename = "plot2.png",
     width = 480, height = 480)
 
-with(powerConsumption, 
-     plot(
-       DateTime,
-       Global_active_power, type = "l",
-       xlab = "",
-       ylab = "Globale Active Power (kilowatts)"))
+plot2()
 
 dev.off()  ## Close the png file device
