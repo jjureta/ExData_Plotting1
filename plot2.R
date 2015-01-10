@@ -18,7 +18,7 @@ png(filename = "plot2.png",
 
 with(powerConsumption, 
      plot(
-       strptime(powerConsumption$DateTime, format = "%d/%m/%Y %H:%M:%S"), 
+       DateTime,
        Global_active_power, type = "l",
        xlab = "",
        ylab = "Globale Active Power (kilowatts)"))

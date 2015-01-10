@@ -90,11 +90,10 @@ loadData <- function() {
   ## load data from the file
   powerConsumption <- fread(subsetFilePath, na.strings = "?")
   
-  ##powerConsumption$DateTime <- paste(powerConsumption$Date, powerConsumption$Time)
-  ##powerConsumption$DateTime <- strptime(powerConsumption$DateTime, format = "%Y-%m-%d %H:%M:%S")
-  
-  powerConsumption[, DateTime := paste(Date, Time)]
-  ##powerConsumption[, DateTime := strptime(DateTime, format = "%d/%m/%Y %H:%M:%S")]
-  
+  ##powerConsumption[, DateTime := paste(Date, Time)]
+  powerConsumption <- cbind(powerConsumption, 
+                            as.POSIXct(paste(powerConsumption$Date, powerConsumption$Time), 
+                                     format = "%d/%m/%Y %H:%M:%S"))
+  setnames(powerConsumption, 10, "DateTime")
   return (powerConsumption)
 }
