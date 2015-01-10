@@ -16,7 +16,6 @@ powerConsumption <- loadData()
 png(filename = "plot1.png",
     width = 480, height = 480)
 
-hist(powerConsumption$Global_active_power, main = "Global Active Power", col = "red", 
-     xlab = "Globale Active Power (kilowatts)")
+plot1()
 
 dev.off()  ## Close the png file device
