@@ -16,6 +16,6 @@ powerConsumption <- loadData()
 png(filename = "plot1.png",
     width = 480, height = 480)
 
-plot1()
+plot1(powerConsumption)
 
 dev.off()  ## Close the png file device

@@ -99,14 +99,14 @@ loadData <- function() {
 }
 
 plot1 <- function(data) {
-  hist(powerConsumption$Global_active_power, 
+  hist(data$Global_active_power, 
        main = "Global Active Power", 
        col = "red", 
        xlab = "Globale Active Power (kilowatts)")
 }
 
 plot2 <- function(data) {
-  with(powerConsumption,  
+  with(data,  
        plot(
          DateTime,
          Global_active_power, type = "l",
@@ -114,8 +114,8 @@ plot2 <- function(data) {
          ylab = "Globale Active Power (kilowatts)"))
 }
 
-plot3 <- function(data) {
-  with(powerConsumption, 
+plot3 <- function(data, bty = "o") {
+  with(data, 
        plot(
          DateTime,
          Sub_metering_1, type = "n",
@@ -123,20 +123,20 @@ plot3 <- function(data) {
          ylab = "Energy sub metering")
   )
   
-  with(powerConsumption, 
+  with(data, 
        points(
          DateTime,
          Sub_metering_1, type = "l")
   )
   
-  with(powerConsumption, 
+  with(data, 
        points(
          DateTime,
          Sub_metering_2, type = "l",
          col = "red")
   )
   
-  with(powerConsumption, 
+  with(data, 
        points(
          DateTime,
          Sub_metering_3, type = "l",
@@ -144,5 +144,24 @@ plot3 <- function(data) {
   )
   
   legend("topright", lty=1, col = c("black", "blue", "red"), 
-         legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
+         legend = c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"),
+         bty = bty)
+}
+
+plotVoltage <- function(data) {
+  with(data,  
+       plot(
+         DateTime,
+         Voltage, type = "l",
+         xlab = "datetime",
+         ylab = "Voltage"))  
+}
+
+plotGlobalReactivePower <- function(data) {
+  with(data,  
+       plot(
+         DateTime,
+         Global_reactive_power, type = "l",
+         xlab = "datetime",
+         ylab = "Global_reactive_power"))  
 }

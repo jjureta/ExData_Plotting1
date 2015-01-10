@@ -16,6 +16,6 @@ Sys.setlocale(category = "LC_TIME", "English")
 png(filename = "plot2.png",
     width = 480, height = 480)
 
-plot2()
+plot2(powerConsumption)
 
 dev.off()  ## Close the png file device
