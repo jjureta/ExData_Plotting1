@@ -3,9 +3,6 @@ library(data.table)
 
 source("./tools.R")
 
-## set working directory
-setwd("E:/doc/projects/r-test/ExData_Plotting1")
-
 ## load data from the file (see tools.R)
 powerConsumption <- loadData()
 
@@ -18,12 +15,8 @@ png(filename = "plot4.png",
 
 par(mfrow = c(2, 2))
 
-with(powerConsumption, {
-  plot2(powerConsumption, ylab = "Globale Active Power")
-  plotVoltage(powerConsumption)
-  plot3(powerConsumption, bty = "n")
-  plotGlobalReactivePower(powerConsumption)
-})
+## create 4 diagrams. for plot2, plotVoltage, plot3 and plotGlobalReactivePower see tools.R
+plot4(powerConsumption)
 
 
 dev.off()  ## Close the png file device

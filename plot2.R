@@ -1,14 +1,11 @@
 ## This scripts downloads, if not already done, data set from UCI site, 
 ## loads data from the ./data/ directory and plots Global Active Power
-## diagram in function of time. Generated histogram is saved in ./plot2.png file
+## diagram in function of time. Generated diagram is saved in ./plot2.png file
 
 library(dplyr)
 library(data.table)
 
 source("./tools.R")
-
-## set working directory
-setwd("E:/doc/projects/r-test/ExData_Plotting1")
 
 ## load data from the file (see tools.R)
 powerConsumption <- loadData()
