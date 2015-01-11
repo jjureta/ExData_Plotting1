@@ -13,9 +13,11 @@ setwd("E:/doc/projects/r-test/ExData_Plotting1")
 ## load data from the file (see tools.R)
 powerConsumption <- loadData()
 
+## created png device
 png(filename = "plot1.png",
     width = 480, height = 480)
 
+## plot histogram (see tools.R)
 plot1(powerConsumption)
 
 dev.off()  ## Close the png file device

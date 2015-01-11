@@ -19,7 +19,7 @@ png(filename = "plot4.png",
 par(mfrow = c(2, 2))
 
 with(powerConsumption, {
-  plot2(powerConsumption)
+  plot2(powerConsumption, ylab = "Globale Active Power")
   plotVoltage(powerConsumption)
   plot3(powerConsumption, bty = "n")
   plotGlobalReactivePower(powerConsumption)

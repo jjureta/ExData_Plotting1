@@ -1,3 +1,7 @@
+## This scripts downloads, if not already done, data set from UCI site, 
+## loads data from the ./data/ directory and plots Global Active Power
+## diagram in function of time. Generated histogram is saved in ./plot2.png file
+
 library(dplyr)
 library(data.table)
 
@@ -13,9 +17,11 @@ powerConsumption <- loadData()
 ## English week day names
 Sys.setlocale(category = "LC_TIME", "English")
 
+## create png device
 png(filename = "plot2.png",
     width = 480, height = 480)
 
+## plot diagram (see tools.R)
 plot2(powerConsumption)
 
 dev.off()  ## Close the png file device

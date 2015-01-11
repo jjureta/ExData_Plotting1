@@ -1,4 +1,5 @@
 require(lubridate)
+require(data.table)
 
 ## This function download and unzip data from UCI site if it is not already done
 downloadData <- function(dataFolder, fileURL) {
@@ -105,13 +106,13 @@ plot1 <- function(data) {
        xlab = "Globale Active Power (kilowatts)")
 }
 
-plot2 <- function(data) {
+plot2 <- function(data, ylab = "Globale Active Power (kilowatts)") {
   with(data,  
        plot(
          DateTime,
          Global_active_power, type = "l",
          xlab = "",
-         ylab = "Globale Active Power (kilowatts)"))
+         ylab = ylab))
 }
 
 plot3 <- function(data, bty = "o") {
